@@ -20,7 +20,7 @@
 步骤/工具/累积输入预算、严格指标与完整分母、索引、迁移、补丁审阅与回滚，以及 Jev/Qwen 分支。
 
 真实 Jev/Qwen 端点、GPU smoke test、GRPO/GiGPO/ABC 训练、办公成功率、Docker 构建和
-远程 GitHub Actions 结果尚未验收。CI 配置已准备，不能将配置文件当成远程运行成功。
+远程 CI 通过情况以本文后面的 Actions 链接为准，不将配置文件的存在当成运行成功。
 
 ## 来源与环境
 
@@ -39,3 +39,16 @@
 目标为 `ziyangyangg/Search_Agent_RL`。此前连接的 403 失败属于授权问题；现改用本机
 已授权的 GitHub CLI 凭证通过 Git 同步。仓库是否已发布及远程 CI 是否通过，分别以远程提交
 和 GitHub Actions 的实际结果为准。发布后再从远程重新克隆，检查树一致性和首次安装流程。
+
+## 全新远程克隆验收
+
+首个完整发布提交 `998aa511f614fefb52d6d31c732f60db2d459e05` 已成功推送，并从 GitHub
+重新克隆到新目录。克隆 HEAD 与本地一致，322 个清单哈希和全部原始源码哈希通过；
+在克隆副本中重跑 72 项测试通过，再构建 wheel、装入临时虚拟环境，并离开源码目录
+验证 help、demo、index、score，均通过。
+
+- [GitHub Actions 首次运行](https://github.com/ziyangyangg/Search_Agent_RL/actions/runs/40953340095)
+- [所有 CI 运行](https://github.com/ziyangyangg/Search_Agent_RL/actions)
+
+CI 覆盖 Ubuntu 上 Python 3.10/3.12 的文件完整性、软件回归、安装包和命令入口。
+Windows 尚未实机验收；历史 GPU 训练与真实模型能力也不在这些检查的证明范围内。

@@ -7,7 +7,18 @@
     "shell_syntax_files": 37,
     "maintained_document_relative_links": 68,
     "legacy_gpu_tested": false,
-    "real_model_tested": false
+    "real_model_tested": false,
+    "fresh_remote_clone_acceptance": {
+      "commit": "998aa511f614fefb52d6d31c732f60db2d459e05",
+      "cpu_tests": 72,
+      "wheel_build_install": "passed",
+      "installed_cli": [
+        "help",
+        "demo",
+        "index",
+        "score"
+      ]
+    }
   },
   "scope": {
     "application": "src/agent_workbench",
@@ -35,7 +46,7 @@
     "docs/publishing.md": "d081e3fcf70057a752bda3473194ebc55528933887ad201318e5c31363354243",
     "docs/reorganization.md": "5fa4c8506572bcf328c07b013f7c016e70ea88701d661da71626798060c9e4fc",
     "docs/rl-roadmap.md": "8084c6663cc9b81cdc55f7babbe927059aff764f89c9e8f6e2e5e08cb077d530",
-    "docs/verification.md": "e90cf8765e401a8647a0a98286752eb2cc50b83a0f9e17ff92bbd5f88ba107ff",
+    "docs/verification.md": "1d0fa6e7e4ff51f6fede277043bb433b75e28223d75de8a0d339a19984280f19",
     "examples/corpus.jsonl": "fa042bf449247ce07d5c879351f364d8441592c24c86e71185e02df856ad7799",
     "examples/demo-trace.json": "5b93373034cbc10f0b9bd47e20aff2a207f73747e64cfae9859dea9e95b4f5de",
     "examples/office/meeting-notes.md": "eb52457f7069effaf6b88f291d2721f594fb41258b1fc2bba72cbb6300fa7f0d",
