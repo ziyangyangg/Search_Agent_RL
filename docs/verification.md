@@ -28,8 +28,14 @@
 本次恢复后在 Mac 工作副本重新实施修复并运行上述 72 项测试与安装检查。
 原外接盘源码、数据、权重均未修改。原始快照无 Git 历史，无法给出其精确上游 commit。
 
-## GitHub 状态
+## 原研究源码完整性
 
-目标为 `ziyangyangg/Search_Agent_RL`。账号元数据有 push 权限，但当前 GitHub 集成创建文件返回
-`403 Resource not accessible by integration`，因此本次发布尚未写入目标仓库。
-源码、文档与可上传交付包已经准备；需要重新授权连接访问该仓库并具备写入能力后再同步。
+`legacy/Search-R1` 保留原主快照 260 文件，原 README 重定位；另有 8 个 AutoDL 脚本。
+逐文件来源哈希见 `legacy/SOURCE_MANIFEST.json`。全仓库 224 个 Python 文件与 37 个 Shell 脚本通过语法检查；68 个维护文档相对链接通过。新增基线源码做文件一致性检查，
+不导入 GPU 依赖，不将其视为功能验收。旧代码的已知问题单独列出。
+
+## GitHub 同步
+
+目标为 `ziyangyangg/Search_Agent_RL`。此前连接的 403 失败属于授权问题；现改用本机
+已授权的 GitHub CLI 凭证通过 Git 同步。仓库是否已发布及远程 CI 是否通过，分别以远程提交
+和 GitHub Actions 的实际结果为准。发布后再从远程重新克隆，检查树一致性和首次安装流程。

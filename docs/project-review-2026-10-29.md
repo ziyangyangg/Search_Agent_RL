@@ -88,3 +88,9 @@ fixture 中省一次生成调用只说明软件路径成立，不能证明真实
 `403 Resource not accessible by integration`。这说明集成可读取仓库元信息，但此次写入
 未获服务授权，不能宣称已上传。完成的源码与文档先保留为可审阅发布包；补齐集成写权限后
 应重新核对仓库状态，再上传并记录真实 commit 与检查结果。原外接盘未改动。
+
+## 本次发布范围与同步方式
+
+仓库同时保留新 Workbench 与 `legacy/Search-R1` 原研究快照：主快照 260 文件原样保留（原 README 改名），另附 8 个旁路 AutoDL 脚本及逐文件来源哈希。旧数据、checkpoint、商业材料不分发；资产入口见 [legacy 指南](../legacy/README.md)。这使读者能阅读原训练实现，而不让旧依赖进入默认应用环境。
+
+此前 GitHub 连接写入返回 403；本机 GitHub CLI 现已以 `ziyangyangg` 完成授权，发布改用本机 Git 凭证。远程提交与 CI 结果以 GitHub 实际状态为准。

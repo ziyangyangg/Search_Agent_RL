@@ -58,3 +58,7 @@
 3. 为一个真实文档任务建立终态 verifier，报告成功、失败与非目标修改。
 4. Jev 与同候选信息的单模型比较质量、覆盖率和成本，再决定是否扩展自动规划或路由训练。
 5. 接入 token 级采样记录和训练后端，GPU smoke test 通过后再比较算法。
+
+## 原数据准备脚本的额外限制
+
+旧 `scripts/data_process/qa_search_train_merge.py` 和 `qa_search_test_merge.py` 会把多个 data_sources 标签绑定到同一份硬编码 HotpotQA 文件，可能造成重复与错误标记；修复前只使用单一 `hotpotqa`，不能声称生成了 NQ 或七数据集混合集。`scripts/download.sh` 的参数名和变量有误；请直接调用 `scripts/download.py --save_path ...`，后者的 `--repo_id` 参数在此快照中被忽略。原样源码现已保留在 [legacy/](../legacy/README.md)，这些限制没有被新应用测试覆盖。

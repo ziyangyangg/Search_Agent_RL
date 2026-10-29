@@ -2,7 +2,7 @@
 
 一个便于阅读、测试和持续改进的**检索与文档工作区 Agent**。项目源自对 Search-R1 的复现审计，将模型接口、工具执行、评估和训练记录分开组织。
 
-**版本 0.2.1。** 本仓库包含独立重构应用、只读候选动作的 Jev/Qwen 协作接口，以及旧 Search-R1 的审阅补丁。原始训练源码、数据、权重独立管理；当前运行器尚未接入新的 RL trainer。
+**版本 0.2.1。** 本仓库包含独立重构应用、只读候选动作的 Jev/Qwen 协作接口，以及旧 Search-R1 的审阅补丁。原始训练、检索与评估源码保留在独立的 `legacy/` 研究基线中；大数据和权重单独获取。当前新运行器尚未接入新的 RL trainer。
 
 ## 五分钟开始
 
@@ -16,6 +16,7 @@ source .venv/bin/activate
 python -m pip install -e .
 agent-workbench demo --workspace examples/office
 python -m unittest discover -s tests -v
+python scripts/check_release.py
 ```
 
 Windows 使用 `py -m venv .venv`、`.venv\Scripts\Activate.ps1` 激活，随后执行相同的 `python` 命令。离线 demo 使用固定响应，不下载模型、不调用付费 API；成功时返回 `status: completed`。运行时仅依赖标准库，安装工具另需 setuptools。
@@ -35,7 +36,7 @@ PYTHONPATH=src python3 -m unittest discover -s tests -v
 | 理解模块、执行流程与数据契约 | [架构和阅读顺序](docs/architecture.md) |
 | 回顾此前整理与这次改进 | [项目回顾](docs/project-review-2026-10-29.md)、[更新记录](CHANGELOG.md) |
 | 了解现有缺点与验收目标 | [已知问题](docs/known-issues.md) |
-| 审查旧 Search-R1 | [源码审计](docs/audit.md) |
+| 读取原 Search-R1 训练、检索和评估源码 | [研究基线入口](legacy/README.md)、[源码审计](docs/audit.md) |
 | 使用 Jev 与 Qwen 协作 | [双系统设计](docs/dual-system.md) |
 | 做评估、继续 RL 研究 | [评估协议](docs/evaluation.md)、[RL 路线](docs/rl-roadmap.md) |
 | 了解文件工作区和部署 | [部署说明](docs/deployment.md) |
@@ -55,7 +56,7 @@ PYTHONPATH=src python3 -m unittest discover -s tests -v
 | `evaluation.py`、`benchmark.py` | 严格评分、完整分母、逐题证据 |
 | `training.py` | 带角色来源的文本轨迹导出，尚非 token 对齐训练数据 |
 
-`scripts/` 管理安装和旧项目补丁，`tests/` 存放回归，`examples/` 提供公开合成样例，`configs/` 保存候选动作配置。模型只提议动作，执行器统一校验并执行。
+`legacy/` 保留原研究源码、来源哈希和资产获取说明，独立于默认应用安装。`scripts/` 管理安装和旧项目补丁，`tests/` 存放回归，`examples/` 提供公开合成样例，`configs/` 保存候选动作配置。模型只提议动作，执行器统一校验并执行。
 
 ## 连接真实模型
 

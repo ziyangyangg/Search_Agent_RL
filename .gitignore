@@ -9,7 +9,6 @@ dist/
 *.sqlite
 runs/
 assets/
-legacy/
 *.safetensors
 *.parquet
 
@@ -28,3 +27,8 @@ data/
 checkpoints/
 hf_models/
 asset-paths.local.json
+
+legacy/**/data/
+legacy/**/outputs/
+legacy/**/verl_checkpoints/
+legacy/**/wandb/

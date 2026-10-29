@@ -2,23 +2,30 @@
 
 目标仓库：<https://github.com/ziyangyangg/Search_Agent_RL>。
 
-当前代码已完成本地软件验证。GitHub 连接读到了仓库与账号 push 权限，但创建文件返回
-`403 Resource not accessible by integration`；这不是代码错误，也不代表文件已经上传。
-需要在 GitHub/ChatGPT 的连接授权中检查该仓库是否被包含、是否允许写入，然后重新执行同步。
+本仓库默认运行 Workbench 应用；原 Search-R1 研究源码保留在独立 `legacy/` 中。
+发布包括源码、测试、说明、公开样例和来源记录；原始数据、权重、商业指南和私有轨迹不提交。
 
-如选择在本机使用自己的 Git 身份发布，工作副本可按以下步骤提交；首次设置身份使用自己的信息：
+本机 GitHub CLI 授权示例：
 
 ```bash
-git init -b main
-git add .
-git commit -m "Prepare audited Search Agent Workbench v0.2.1"
-git remote add origin https://github.com/ziyangyangg/Search_Agent_RL.git
-git push -u origin main
+gh auth login --hostname github.com --git-protocol https --web --scopes workflow
+gh auth setup-git --hostname github.com
+gh auth status
 ```
 
-这些首次初始化命令适用于解压后的无 Git 目录，并假设目标仓库仍为空；已有 Git 工作副本复用现有历史和 remote。
-本次整理的本机工作副本已经准备 Git 提交和 origin 时，只需检查 `git status` / `git remote -v` 后同步。
-不要在命令、文档或仓库里粘贴 token；使用本机正常 Git 认证流程。
+`workflow` 用于提交本仓库的 `.github/workflows/`。不要将 token 写入命令、文件或仓库。
+ChatGPT GitHub 连接和本机 CLI 是不同授权渠道；此前连接 403 时，改用已授权本机 Git。
 
-发布范围是新应用、测试、公开样例、说明和旧快照补丁；权重、原始数据、商业指南、运行轨迹及私密配置均不提交。
-远程 Actions 启动后需查看实际结果，当前验证记录只声明已经运行过的本地检查。
+新贡献者拉取并修改：
+
+```bash
+git clone https://github.com/ziyangyangg/Search_Agent_RL.git
+cd Search_Agent_RL
+git switch -c improve/my-change
+python -m pip install -e .
+python -m unittest discover -s tests -v
+```
+
+完成修改后提交到分支并发 PR。维护者应核对测试与已知问题，再更新主分支。所有来源哈希和根目录
+`MANIFEST.json` 应随有意的源码变更更新；原始基线修改还需记录在来源说明中。
+远程 Actions 以实际运行结果为准，不能只凭配置存在宣称已通过。
