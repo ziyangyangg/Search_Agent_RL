@@ -1,0 +1,7 @@
+Search Agent Workbench
+
+This release contains newly organized runtime code and patches for an existing
+Search-R1 snapshot. Original Search-R1 and veRL code retain their respective
+copyright and attribution notices. The full upstream Apache-2.0 license is
+included in LICENSE. Model weights, datasets, and commercial guide documents
+are excluded. No original project results are claimed as newly verified here.

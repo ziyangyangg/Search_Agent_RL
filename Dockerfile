@@ -1,0 +1,6 @@
+FROM python:3.11-slim
+WORKDIR /app
+COPY src /app/src
+ENV PYTHONPATH=/app/src PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1
+USER 10001:10001
+ENTRYPOINT ["python", "-m", "agent_workbench.cli"]

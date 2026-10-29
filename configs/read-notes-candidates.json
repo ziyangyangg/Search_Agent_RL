@@ -1,0 +1,14 @@
+[
+  {
+    "id": "read_notes",
+    "description": "Read meeting-notes.md when the user asks about these meeting notes and they have not been read yet.",
+    "tool": "workspace_read_text",
+    "arguments": {"path": "meeting-notes.md"}
+  },
+  {
+    "id": "list_files",
+    "description": "List available files only when locating a document is necessary before choosing what to read.",
+    "tool": "workspace_list_files",
+    "arguments": {}
+  }
+]
