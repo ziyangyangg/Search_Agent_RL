@@ -19,8 +19,8 @@
 覆盖范围包括工具参数与路径、禁止覆盖、FIFO 拒绝、模型/工具来源、调用 ID、写入授权、
 步骤/工具/累积输入预算、严格指标与完整分母、索引、迁移、补丁审阅与回滚，以及 Jev/Qwen 分支。
 
-真实 Jev/Qwen 端点、GPU smoke test、GRPO/GiGPO/ABC 训练、办公成功率、Docker 构建和
-远程 CI 通过情况以本文后面的 Actions 链接为准，不将配置文件的存在当成运行成功。
+真实 Jev/Qwen 端点、GPU smoke test、GRPO/GiGPO/ABC 训练、办公成功率与 Docker 构建尚未验收。
+远程 CI 只验证下面列出的 CPU 软件行为，结果以 Actions 链接为准。
 
 ## 来源与环境
 
@@ -37,8 +37,8 @@
 ## GitHub 同步
 
 目标为 `ziyangyangg/Search_Agent_RL`。此前连接的 403 失败属于授权问题；现改用本机
-已授权的 GitHub CLI 凭证通过 Git 同步。仓库是否已发布及远程 CI 是否通过，分别以远程提交
-和 GitHub Actions 的实际结果为准。发布后再从远程重新克隆，检查树一致性和首次安装流程。
+已授权的 GitHub CLI 凭证通过 Git 完成推送。发布后已重新克隆并通过下述首次安装验收。
+首次完整发布提交的 Linux Python 3.10/3.12 CI 已通过；后续提交状态可在 Actions 查看。
 
 ## 全新远程克隆验收
 
